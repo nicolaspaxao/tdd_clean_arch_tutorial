@@ -2,5 +2,5 @@
 
 Um projeto exemplo utilizando Clean Arch, TDD e mockApi;
 
-- [Link do mockApi:](https://mockapi.io/)
+- [Link do mockApi](https://mockapi.io/)
 

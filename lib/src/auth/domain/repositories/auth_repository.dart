@@ -1,14 +1,15 @@
-import 'package:dartz/dartz.dart';
 import 'package:dummy_project/src/auth/domain/entities/user.dart';
+
+import '../../../../core/utils/typedef.dart';
 
 abstract class AuthRepository {
   const AuthRepository();
 
-  Future<Either<Exception, void>> createUser({
+  ResultVoid createUser({
     required String createdAt,
     required String name,
     required String avatar,
   });
 
-  Future<Either<Exception, List<User>>> getUser();
+  ResultFuture<List<User>> getUser();
 }
