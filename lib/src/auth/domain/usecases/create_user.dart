@@ -26,6 +26,13 @@ class CreateUserParams extends Equatable {
   final String name;
   final String avatar;
 
+  const CreateUserParams.empty()
+      : this(
+          avatar: '_empy.string',
+          name: '_empy.string',
+          createdAt: '_empy.string',
+        );
+
   const CreateUserParams({
     required this.createdAt,
     required this.name,

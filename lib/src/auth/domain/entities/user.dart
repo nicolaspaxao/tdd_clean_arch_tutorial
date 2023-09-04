@@ -13,6 +13,14 @@ class User extends Equatable {
     this.avatar,
   });
 
+  const User.empty()
+      : this(
+          avatar: '_empy.string',
+          createdAt: '_empy.string',
+          id: 1,
+          name: '_empy.string',
+        );
+
   @override
   bool operator ==(covariant User other) {
     if (identical(this, other)) return true;
