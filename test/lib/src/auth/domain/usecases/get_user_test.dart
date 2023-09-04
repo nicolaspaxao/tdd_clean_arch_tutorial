@@ -33,8 +33,8 @@ void main() {
       //* Assert
       expect(result, equals(const Right<dynamic, List<User>>(tResponse)));
 
+      //* Verify that was tested doesn't has been called more than 1 time and doesn't made any interactions after.
       verify(() => repository.getUser()).called(1);
-
       verifyNoMoreInteractions(repository);
     },
   );
