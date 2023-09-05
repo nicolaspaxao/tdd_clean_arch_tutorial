@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class User extends Equatable {
-  final int? id;
+  final String? id;
   final String? createdAt;
   final String? name;
   final String? avatar;
@@ -17,8 +17,8 @@ class User extends Equatable {
       : this(
           avatar: '_empy.string',
           createdAt: '_empy.string',
-          id: 1,
           name: '_empy.string',
+          id: '1',
         );
 
   @override

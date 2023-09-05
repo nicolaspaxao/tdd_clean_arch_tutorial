@@ -14,9 +14,17 @@ class UserModel extends User {
   factory UserModel.fromJson(String source) =>
       UserModel.fromMap(jsonDecode(source) as DataMap);
 
+  const UserModel.empty()
+      : this(
+          avatar: '_empy.string',
+          createdAt: '_empy.string',
+          name: '_empy.string',
+          id: '1',
+        );
+
   UserModel.fromMap(DataMap map)
       : this(
-          id: map['id'] as int,
+          id: map['id'] as String,
           name: map['name'] as String,
           avatar: map['avatar'] as String,
           createdAt: map['createdAt'] as String,
@@ -26,7 +34,7 @@ class UserModel extends User {
     String? avatar,
     String? name,
     String? createdAt,
-    int? id,
+    String? id,
   }) {
     return UserModel(
       id: id ?? this.id,
