@@ -9,11 +9,11 @@ import 'auth_repo_mock.dart';
 
 void main() {
   late AuthRepository repository;
-  late GetUser usecase;
+  late GetUsers usecase;
 
   setUpAll(() {
     repository = MockAuthRepository();
-    usecase = GetUser(repository);
+    usecase = GetUsers(repository);
   });
 
   const tResponse = [User.empty()];
