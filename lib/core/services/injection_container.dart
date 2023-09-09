@@ -10,19 +10,24 @@ import 'package:http/http.dart' as http;
 final sl = GetIt.instance;
 
 Future<void> init() async {
-  //* States
-  sl.registerFactory(() => AuthBloc(createUser: sl(), getUser: sl()));
+  sl
+    // App Logic
+    ..registerFactory(() => AuthBloc(
+          createUser: sl(),
+          getUser: sl(),
+        ))
 
-  //* Usecases
-  sl.registerFactory(() => CreateUser(sl()));
-  sl.registerFactory(() => GetUsers(sl()));
+    // Use cases
+    ..registerLazySingleton(() => CreateUser(sl()))
+    ..registerLazySingleton(() => GetUsers(sl()))
 
-  //* Repositories
-  sl.registerFactory<AuthRepository>(() => AuthRepositoryImpl(sl()));
+    // Repositories
+    ..registerLazySingleton<AuthRepository>(() => AuthRepositoryImpl(sl()))
 
-  //* Datasources
-  sl.registerFactory<AuthDatasource>(() => AuthDatasourceImpl(client: sl()));
+    // Data Sources
+    ..registerLazySingleton<AuthDatasource>(
+        () => AuthDatasourceImpl(client: sl()))
 
-  //* Http Client
-  sl.registerFactory(() => http.Client);
+    // External Dependencies
+    ..registerLazySingleton(http.Client.new);
 }

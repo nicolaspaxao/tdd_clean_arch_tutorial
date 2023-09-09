@@ -29,10 +29,11 @@ class AuthDatasourceImpl implements AuthDatasource {
       final response = await client.post(
         Uri.parse('$kBaseUrl/users'),
         body: jsonEncode({
-          'createdAt': 'createdAt',
-          'name': 'name',
-          'avatar': 'avatar',
+          'createdAt': createdAt,
+          'name': name,
+          'avatar': avatar,
         }),
+        headers: {'Content-Type': 'application/json'},
       );
       if (response.statusCode != 200 && response.statusCode != 201) {
         throw APIException(

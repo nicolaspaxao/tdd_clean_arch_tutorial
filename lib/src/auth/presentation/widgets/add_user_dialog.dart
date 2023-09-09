@@ -35,9 +35,10 @@ class AddUserDialog extends StatelessWidget {
                   final name = nameController.text.trim();
                   context.read<AuthBloc>().add(
                         CreateUserEvent(
-                            createdAt: DateTime.now().toString(),
-                            name: name,
-                            avatar: avatar),
+                          createdAt: DateTime.now().toString(),
+                          name: name,
+                          avatar: avatar,
+                        ),
                       );
                   Navigator.of(context).pop();
                 },
